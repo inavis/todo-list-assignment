@@ -31,6 +31,8 @@ body{
   border: none;
   outline: none;
   background-color: beige;
+  cursor: pointer;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .baritem button:hover{
   background-color: azure;
