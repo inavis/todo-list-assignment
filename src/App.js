@@ -98,6 +98,7 @@ function All({taskslist,settaskslist}) {
          [...m].map(([task,value])=>(
            <DisplayTask  task={task} value={value}
             taskslist={taskslist} settaskslist={settaskslist}
+            
             />
          ))
        }
@@ -118,6 +119,7 @@ function Active({taskslist,settaskslist}) {
         (
           <DisplayTask  task={task} value={value}
           taskslist={taskslist} settaskslist={settaskslist}
+          
           />
         ))
        }
@@ -137,6 +139,7 @@ function Completed({taskslist,settaskslist}) {
         (
           <DisplayTask  task={task} value={value}
           taskslist={taskslist} settaskslist={settaskslist}
+          
           />
         ))
        }
@@ -152,12 +155,13 @@ export default App;
 //Display function
 //Based on checkbox checked or not (task completed or not) tyle is also added and task status is also updated in map and tasklist
 function DisplayTask({task,value,taskslist,settaskslist}){
+  
   // console.log({task,value});
   const temp = (value)?{textDecoration:"line-through"}:{textDecoration:"none"}
   const [style1,setstyle1]=useState(temp);
   return(
     <div id={task} style={style1} className='taskdiv'>
-      <input type={"checkbox"}  id={task} className='checkbox' onClick={ (e) =>
+      <input type={"checkbox"}  id={task} className='checkbox' checked={value} onClick={ (e) =>
     { 
       [...m].map(([task,value])=>
       {
@@ -168,6 +172,7 @@ function DisplayTask({task,value,taskslist,settaskslist}){
           m.set(task,true)
           settaskslist([...m]);
           setstyle1({textDecoration:"line-through"});
+      
          }else{
             // settaskslist([...taskslist,{task:task,status:true}])
           m.set(task,false)
